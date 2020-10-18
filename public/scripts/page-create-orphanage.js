@@ -62,3 +62,19 @@ function toggleSelect({currentTarget}) {
 
     input.value = value
 }
+
+function validate(event) {
+    const hiddenInputs = document.querySelectorAll('input[type="hidden"]')
+    let isAllHiddenInputsFilled = true
+
+    hiddenInputs.forEach(input => {
+        if(!input.value) isAllHiddenInputsFilled = false
+    })
+
+    console.log(isAllHiddenInputsFilled)
+
+    if(!isAllHiddenInputsFilled) {
+        event.preventDefault()
+        alert('Escolha um ponto no mapa')
+    }
+}
